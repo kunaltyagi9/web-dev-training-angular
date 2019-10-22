@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
+import { Observable } from 'rxjs';
+import { IUser } from '../user';
 
 @Component({
   selector: 'app-user-list',
@@ -9,19 +11,12 @@ import { UserService } from '../user.service';
 
 export class UserListComponent implements OnInit {
   
-  flag : boolean = true;
-  inputValue : string;
   toggleShowHide : boolean = true;
-  showHideDetails : boolean = false;
   showColumns : boolean = false;
-  labelDetals : string;
-  term : string;
-  displayLabel : string;
-  val  : string;
-  public users = [];
-  constructor(private _userService : UserService) { }
+  users$ : Observable<IUser[]>;
 
-  disabled : boolean = true;
+
+  constructor(private _userService : UserService) { }
 
   ngOnInit() {
     setTimeout(() => {
@@ -29,28 +24,12 @@ export class UserListComponent implements OnInit {
     },3000);
     this.showColumns = true;
     this.toggleShowHide = true;
-    this.getData();
+    this.users$ = this.getData();
   }
 
-
-  getData(){
-    this._userService.getUsers()
-    .subscribe(data => this.users = data);
+  getData() : Observable<IUser[]>{
+    return this._userService.getUsers();
   }
-
-  onkeyup(event){
-    if(this.flag){
-      this.flag = !this.flag;
-    }   
-    console.log(event);
-    if(event === ""){
-      this.showHideDetails = true;
-      this.displayLabel = "please enter username";
-      console.log(event);
-    }else{
-      this.showHideDetails = false;
-    }   
-     
-  }
+  
 
 }
