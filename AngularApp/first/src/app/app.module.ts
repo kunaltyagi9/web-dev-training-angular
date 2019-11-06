@@ -4,23 +4,23 @@ import { HttpClientModule } from '@angular/common/http';
 import { IUser} from './user';
 import { Observable } from 'rxjs';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, routingComponent } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserListComponent } from './user-list/user-list.component';
 import { FilterPipe } from './filter.pipe';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [
+  declarations: [ 
     AppComponent,
-    UserListComponent,
+    routingComponent,
     FilterPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
