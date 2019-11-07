@@ -12,9 +12,9 @@ import { IUser } from '../user';
 export class UserListComponent implements OnInit {
   
   toggleShowHide : boolean = true;
-  showColumns : boolean = false;
   users$ : Observable<IUser[]>;
 
+  clickedID : number;
 
   constructor(private _userService : UserService) { }
 
@@ -22,14 +22,12 @@ export class UserListComponent implements OnInit {
     setTimeout(() => {
       this.toggleShowHide = false;
     },3000);
-    this.showColumns = true;
     this.toggleShowHide = true;
     this.users$ = this.getData();
+    console.log(this.users$)
   }
 
   getData() : Observable<IUser[]>{
     return this._userService.getUsers();
   }
-  
-
 }
