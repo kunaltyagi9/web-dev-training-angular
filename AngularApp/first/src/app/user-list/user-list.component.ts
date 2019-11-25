@@ -14,8 +14,6 @@ export class UserListComponent implements OnInit {
   toggleShowHide : boolean = true;
   users$ : Observable<IUser[]>;
 
-  clickedID : number;
-
   constructor(private _userService : UserService) { }
 
   ngOnInit() {
@@ -24,7 +22,6 @@ export class UserListComponent implements OnInit {
     },3000);
     this.toggleShowHide = true;
     this.users$ = this.getData();
-    console.log(this.users$)
   }
 
   getData() : Observable<IUser[]>{
