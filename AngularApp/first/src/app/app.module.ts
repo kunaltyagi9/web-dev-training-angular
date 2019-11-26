@@ -6,14 +6,21 @@ import { Observable } from 'rxjs';
 
 import { AppRoutingModule, routingComponent } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { FilterPipe } from './filter.pipe';
+
 import { FormsModule } from '@angular/forms';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 @NgModule({
   declarations: [ 
     AppComponent,
     routingComponent,
+
+    UserDetailsComponent,
+
     FilterPipe,
+
   ],
   imports: [
     BrowserModule,

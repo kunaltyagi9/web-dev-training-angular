@@ -1,0 +1,10 @@
+<div class="container">
+    <a routerLink="" [class.activated]="_url == '/'">
+        <i class="material-icons" style="size : 100px;">arrow_back</i>
+    </a>
+    <ul class="mylist card mt-2">
+        <li class="card-body text-primary">{{(user$ | async).name}}</li>
+        <li class="card-body text-secondary myli2">{{(user$ | async).email}}</li>
+        <li class="card-body text-info myli2"><a href="https://{{(user$ | async).website}}" target="_blank">{{(user$ | async).website}}</a></li>
+    </ul>
+</div>
