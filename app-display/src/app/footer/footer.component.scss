@@ -1,0 +1,12 @@
+.fa {
+    padding: 5px;
+    font-size: 20px;
+    width: 15px;
+    text-decoration: none;
+    &:hover {
+        opacity: 0.7;
+    }
+}
+.fa-facebook, .fa-instagram, .fa-twitter, .fa-google  {
+    color: white;
+}

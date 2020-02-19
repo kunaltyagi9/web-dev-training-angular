@@ -1,0 +1,13 @@
+<div class="container mb-5">
+    <h2 class="display-4 mt-4 mb-5">Displaying Data</h2>
+
+    <div id="loader" [hidden]="!toggleShowHide"></div>
+    <div id="output" [hidden]="toggleShowHide">
+        <ul class="mylist card mt-2" *ngFor="let user of users$">
+            <li class="card-body text-primary">{{user.name}}</li>
+            <li class="card-body text-secondary" id="myli2">{{user.email}}</li>
+            <li class="card-body text-info" id="myli2"><a href="https://{{user.website}}"
+                    target="_blank">{{user.website}}</a></li>
+        </ul>
+    </div>
+</div>
