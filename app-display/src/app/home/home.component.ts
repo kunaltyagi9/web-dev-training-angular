@@ -14,18 +14,23 @@ export class HomeComponent implements OnInit {
   constructor(private _userService  : DataServiceService) { }
 
   ngOnInit() {
-    setTimeout(() => {
-      this.toggleShowHide = false;
-    },3000);
     this.getData();
   }
 
   getData(){
+    
     this._userService.getUsers()
-    .subscribe(data =>{
-      data = JSON.parse(JSON.stringify(data));
-      this.users$ = data
-    });
+    .subscribe(
+      data =>{
+        this.toggleShowHide = false;    
+        data = JSON.parse(JSON.stringify(data));
+        this.users$ = data
+      },
+      error =>{
+        this.toggleShowHide = false;
+        alert("erorr getting response");
+      }
+    );
 
     if(this.users$){
       this.toggleShowHide = true;
